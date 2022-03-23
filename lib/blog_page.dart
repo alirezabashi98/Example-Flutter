@@ -19,7 +19,17 @@ class BlogPage extends StatelessWidget {
       ),
       body: Center(
         child: SafeArea(
-          child: Text('Blog Page'),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image(
+                  image: AssetImage('images/s.png'),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
