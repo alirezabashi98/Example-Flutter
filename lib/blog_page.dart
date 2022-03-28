@@ -1,10 +1,19 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_application_2/custom_widges/post_widget.dart';
 
 class BlogPage extends StatelessWidget {
-  const BlogPage({Key? key}) : super(key: key);
+  BlogPage({Key? key}) : super(key: key);
 
+  var ImageList = ['images/s.png', 'images/c.png', 'images/a.png'];
+  final listBlogWidget = [
+    for (var image in ['images/s.png', 'images/c.png', 'images/a.png']) getBlogPost(image),
+  ];
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -20,12 +29,32 @@ class BlogPage extends StatelessWidget {
       body: Center(
         child: SafeArea(
           child: Center(
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: Image(
-                  image: AssetImage('images/s.png'),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    ...listBlogWidget,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.red,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'خروج از حساب',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
                 ),
               ),
             ),

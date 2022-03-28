@@ -10,35 +10,25 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Center(
-        child: SafeArea(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   width: double.infinity,
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'خوش آمدید',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.white),
-                    ),
-                    SizedBox(
-                      width: 14,
-                    ),
-                    Icon(
-                      Icons.login,
-                      color: Colors.white,
-                    )
-                  ],
+                Text(
+                  'ورود به حساب vip سیگنال',
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                      color: Colors.black),
                 ),
                 Image(
                   image: AssetImage('images/splash_screen.png'),
@@ -53,8 +43,8 @@ class LoginPage extends StatelessWidget {
                   ),
                   style: OutlinedButton.styleFrom(
                       minimumSize: Size(200.0, 40.0),
-                      side: BorderSide(color: Colors.white, width: 2.0),
-                      primary: Colors.white),
+                      side: BorderSide(color: Colors.black, width: 2.0),
+                      primary: Colors.black),
                 ),
                 ElevatedButton(
                   onPressed: () {},
@@ -71,7 +61,7 @@ class LoginPage extends StatelessWidget {
                   },
                   child: Text(
                     'رمز عبور فراموش کردم',
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
                   ),
                   style: TextButton.styleFrom(
                       minimumSize: Size(200.0, 40.0), primary: Colors.white),
