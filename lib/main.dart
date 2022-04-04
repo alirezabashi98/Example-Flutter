@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/login_page.dart';
+import 'package:flutter_application_2/home_page.dart';
 
 void main() {
   runApp(const Application());
@@ -11,8 +11,9 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'vazir'),
-        home: LoginPage());
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'vazir'),
+      home: GameAppliction(),
+    );
   }
 }
