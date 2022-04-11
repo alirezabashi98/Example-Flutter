@@ -112,7 +112,7 @@ class _ApplicationState extends State<Application> {
                 setState(() {
                   setNewValue(text4);
                 });
-              else if (text4 == '=')
+              else if (text4 == '=' && inputUser1 != '' && inputOperator != '' && inputUser2 != '')
                 setState(() {
                   result = getResult().toString();
                 });
