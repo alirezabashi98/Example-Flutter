@@ -87,32 +87,7 @@ class _ApplicationState extends State<Application> {
                     side: BorderSide(width: 10, color: Colors.transparent)),
                 backgroundColor: getBackgroundColor(text4)),
             onPressed: () {
-              if (
-              inputUser1.length > 0 &&
-                  inputUser2.length > 0&&
-                  inputOperator.length > 0 &&
-                  (text4 == '/' ||
-                      text4 == '*' ||
-                      text4 == '-' ||
-                      text4 == '+')
-              )
-                setState(() {
-                  setAddValue(text4);
-                });
-              else if (
-              inputUser1.length > 0 &&
-                  inputUser2.length > 0&&
-                  inputOperator.length > 0&&
-                  result.length > 0 &&
-                  (text4 == '/' ||
-                      text4 == '*' ||
-                      text4 == '-' ||
-                      text4 == '+')
-              )
-                setState(() {
-                  setNewValue(text4);
-                });
-              else if (text4 == '=' && inputUser1 != '' && inputOperator != '' && inputUser2 != '')
+              if (text4 == '=' && inputUser1 != '' && inputOperator != '' && inputUser2 != '')
                 setState(() {
                   result = getResult().toString();
                 });
@@ -171,7 +146,34 @@ class _ApplicationState extends State<Application> {
 
   void buttonPressed(String text) {
     setState(() {
-      if (!isOperator(text) && inputOperator == '')
+      if (
+      inputUser1.length > 0 &&
+          inputUser2.length > 0&&
+          inputOperator.length > 0 &&
+          (text == '/' ||
+              text == '*' ||
+              text == '-' ||
+              text == '+'||
+              text == '%')
+      )
+        setState(() {
+          setAddValue(text);
+        });
+      else if (
+      inputUser1.length > 0 &&
+          inputUser2.length > 0&&
+          inputOperator.length > 0&&
+          result.length > 0 &&
+          (text == '/' ||
+              text == '*' ||
+              text == '-' ||
+              text == '+' ||
+              text == '%')
+      )
+        setState(() {
+          setNewValue(text);
+        });
+      else if (!isOperator(text) && inputOperator == '')
         inputUser1 += text;
       else if (inputUser2 == '' &&
           inputUser1 != '' &&
@@ -186,7 +188,9 @@ class _ApplicationState extends State<Application> {
   }
 
   void buttonCe() {
-    if (inputUser2 != '')
+    if(result != '')
+      result = '';
+    else if (inputUser2 != '')
       inputUser2 = inputUser2.substring(0, inputUser2.length - 1);
     else if (inputUser2 == '' && inputOperator != '')
       inputOperator = '';
