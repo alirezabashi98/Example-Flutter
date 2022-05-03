@@ -12,13 +12,14 @@ class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: "dana"),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey[900],
         appBar: _AppBarHomeScreen(),
         body: SafeArea(
           child: Center(
-            child: Text("Quiz")
+            child: Text("سلام",style: TextStyle(color: Colors.white),)
           ),
         ),
       ),
